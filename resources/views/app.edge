@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AdonisJS - A Modern Web Framework For Node.js</title>
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,500&display=swap" rel="stylesheet">
+  <!-- Milligram CSS -->
+  <link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/milligram/1.4.1/milligram.css"
+  />
+  <link rel="stylesheet"  href="/css/styles.css"/>
+
+</head>
+<body>
+
+  <main>
+    <nav class="navbar">
+      <h3 class="logo"><a href="/">Jornalismo UTFPR</a></h3>
+      <ul>
+       
+         <li><a href="/login">Entrar</a></li>
+        
+        
+      </ul>
+    </nav>
+    <div class="content">
+      @!section("page") 
+    </div>
+  </main>
+  <div class="row row-wrap">
+    @each(article in articles)
+    <div class="column column-50">
+            <aside class="card">
+
+                <h3>
+                    <a href="{{ route('ArticlesController.show', {id: article.id}) }}">
+                    {{ article.title }}
+                    </a>
+                </h3>
+                <p class="article-meta">Updated: {{article.publishDate}}</p>
+
+                <p>
+                    {{{ article.content ? article.content.substring(0,100) : "" }}}
+                </p>
+            </aside>    
+    </div>
+    @endeach
+</div>
+  <footer>
+    (c) Company UTFR
+    <span style="float:right"><a href="">github</a></span>
+  </footer>
+</body>
+</html>

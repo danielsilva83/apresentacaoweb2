@@ -1,0 +1,43 @@
+@layout("app_")
+
+@section("page")
+
+<section class="hero">
+    <div class="row">
+        <div class="column">  
+            <h3 class="title"> Bem-vindo ao noticiário! </h3>
+            <p class="subtitle"> 
+            Notícias UTFPR CP.
+            </p>
+        </div>
+        <div class="column center">
+            <img src="/images/smiley.png" style="width:150px;height:150px;margin:auto;" class="column"/>
+        </div>
+
+    </div>
+</section>
+
+
+<div class="row row-wrap">
+    @each(article in articles)
+    <div class="column column-50">
+            <aside class="card">
+              
+                <a href="/articles/{{article.id}}/edit" class="article-meta-small">Editar</a>
+                
+                
+                <h3>
+                    <a href="{{ route('ArticlesController.show', {id: article.id}) }}">
+                    {{ article.title }}
+                    </a>
+                </h3>
+                <p class="article-meta">Updated: {{article.publishDate}}</p>
+
+                <p>
+                    {{{ article.content ? article.content.substring(0,100) : "" }}}
+                </p>
+            </aside>    
+    </div>
+    @endeach
+</div>
+@endsection
