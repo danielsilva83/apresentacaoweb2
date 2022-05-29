@@ -13,10 +13,15 @@ O aplicativo usa -
 
 Executar
 -Execute  npm install para instalar todas as dependências
+
 -Faça uma cópia de .env.examplerenomeá-lo para.env
+
 -Execute adonis key:generatepara gerar a chave secreta
+
 -Execute adonis migration:run para configurar o banco de dados
+
 -Executar npm run buildpara criar ativos estáticos
+
 -Executar adonis serve --devpara executar o aplicativo
 
 
